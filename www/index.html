@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>LUMINESCENT OMNI</title>
+<style>
+:root{--bg:#0a0a0f;--bg2:#12121a;--bg3:#1a1a25;--ac:#7c3aed;--ac2:#a855f7;--gr:#10b981;--rd:#ef4444;--tx:#e2e8f0;--tx2:#94a3b8;--br:#2d2d3d;--inp:#16162b}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--tx);font-family:'Segoe UI',system-ui,sans-serif;height:100vh;display:flex;flex-direction:column;overflow:hidden}
+#hdr{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:var(--bg2);border-bottom:1px solid var(--br);flex-shrink:0}
+#logo{font-size:14px;font-weight:800;letter-spacing:2px;background:linear-gradient(135deg,#7c3aed,#a855f7,#06b6d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+#dot{width:8px;height:8px;border-radius:50%;background:var(--rd);display:inline-block;margin-right:5px;transition:background .3s}
+#dot.on{background:var(--gr);box-shadow:0 0 6px var(--gr)}
+#stxt{font-size:11px;color:var(--tx2)}
+#mbar{display:flex;gap:6px;padding:8px 12px;background:var(--bg2);border-bottom:1px solid var(--br);overflow-x:auto;flex-shrink:0;scrollbar-width:none}
+#mbar::-webkit-scrollbar{display:none}
+.mbtn{padding:5px 12px;border-radius:20px;border:1px solid var(--br);background:transparent;color:var(--tx2);font-size:11px;cursor:pointer;white-space:nowrap;transition:all .2s}
+.mbtn.on{background:var(--ac);border-color:var(--ac);color:#fff}
+#chat{flex:1;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:10px}
+.msg{max-width:93%;padding:10px 14px;border-radius:12px;font-size:13px;line-height:1.65;word-break:break-word}
+.msg.u{background:var(--ac);align-self:flex-end;border-radius:12px 12px 4px 12px}
+.msg.a{background:var(--bg3);border:1px solid var(--br);align-self:flex-start;border-radius:12px 12px 12px 4px;white-space:pre-wrap;font-family:inherit}
+.msg.s{background:transparent;border:1px dashed var(--br);color:var(--tx2);font-size:10px;text-align:center;align-self:center;padding:5px 14px;border-radius:8px}
+.dot-anim span{animation:blink 1.2s infinite}
+.dot-anim span:nth-child(2){animation-delay:.2s}
+.dot-anim span:nth-child(3){animation-delay:.4s}
+@keyframes blink{0%,80%,100%{opacity:0}40%{opacity:1}}
+#tbar{display:flex;gap:6px;padding:6px 12px;background:var(--bg2);border-top:1px solid var(--br);overflow-x:auto;flex-shrink:0;scrollbar-width:none}
+#tbar::-webkit-scrollbar{display:none}
+.tbtn{padding:4px 10px;border-radius:12px;border:1px solid var(--br);background:transparent;color:var(--tx2);font-size:10px;cursor:pointer;white-space:nowrap;transition:all .2s}
+.tbtn:hover{border-color:var(--ac2);color:var(--ac2)}
+#iarea{display:flex;gap:8px;padding:10px 12px;background:var(--bg2);border-top:1px solid var(--br);align-items:flex-end;flex-shrink:0}
+#inp{flex:1;background:var(--inp);border:1px solid var(--br);border-radius:12px;color:var(--tx);font-size:13px;padding:8px 12px;resize:none;max-height:100px;min-height:38px;outline:none;font-family:inherit;transition:border-color .2s;line-height:1.5}
+#inp:focus{border-color:var(--ac)}
+#sbtn{width:38px;height:38px;border-radius:10px;background:var(--ac);border:none;color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s}
+#sbtn:hover{background:var(--ac2)}
+#sbtn:disabled{background:var(--br);cursor:not-allowed}
+#xbtn{width:38px;height:38px;border-radius:10px;background:var(--rd);border:none;color:#fff;font-size:16px;cursor:pointer;display:none;align-items:center;justify-content:center;flex-shrink:0}
+#meta{display:flex;justify-content:space-between;padding:3px 12px;background:var(--bg);font-size:10px;color:var(--tx2);flex-shrink:0;border-top:1px solid var(--br)}
+#ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:100;align-items:flex-end}
+#ov.open{display:flex}
+#sp{width:100%;background:var(--bg2);border-radius:20px 20px 0 0;padding:20px;max-height:82vh;overflow-y:auto}
+#sp h2{font-size:14px;margin-bottom:16px;color:var(--tx)}
+.sr{margin-bottom:14px}
+.sr label{font-size:11px;color:var(--tx2);display:block;margin-bottom:4px}
+.sr input,.sr textarea{width:100%;background:var(--inp);border:1px solid var(--br);border-radius:8px;color:var(--tx);padding:8px 10px;font-size:12px;outline:none;font-family:inherit}
+.sr input:focus,.sr textarea:focus{border-color:var(--ac)}
+.sr textarea{resize:vertical;min-height:60px}
+.br2{display:flex;gap:8px;margin-top:12px}
+.bp{flex:1;padding:10px;background:var(--ac);border:none;border-radius:10px;color:#fff;font-size:13px;cursor:pointer}
+.bs{flex:1;padding:10px;background:transparent;border:1px solid var(--br);border-radius:10px;color:var(--tx2);font-size:13px;cursor:pointer}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-thumb{background:var(--br);border-radius:2px}
+</style>
+</head>
+<body>
+<div id="hdr">
+  <div id="logo">⬡ LUMINESCENT OMNI</div>
+  <div style="display:flex;align-items:center;gap:10px">
+    <span><span id="dot"></span><span id="stxt">connecting...</span></span>
+    <button onclick="openS()" style="background:none;border:none;color:var(--tx2);font-size:19px;cursor:pointer">⚙</button>
+  </div>
+</div>
+<div id="mbar">
+  <button class="mbtn on" data-m="deepseek-v3" onclick="setM(this)">⚡ DeepSeek-V3</button>
+  <button class="mbtn" data-m="llama3:8b-instruct-q4_K_M" onclick="setM(this)">🦙 LLaMA-3-8B</button>
+  <button class="mbtn" data-m="auto" onclick="setM(this)">🤖 Agent Router</button>
+  <button class="mbtn" data-m="luminous" onclick="setM(this)">✨ Luminous</button>
+</div>
+<div id="chat">
+  <div class="msg s">LUMINESCENT OMNI • KNOCKS NET v1.0 • DeepSeek-V3 + LLaMA-3-8B</div>
+</div>
+<div id="tbar">
+  <button class="tbtn" onclick="useTpl('code')">💻 Code</button>
+  <button class="tbtn" onclick="useTpl('explain')">📖 Explain</button>
+  <button class="tbtn" onclick="useTpl('creative')">🎨 Creative</button>
+  <button class="tbtn" onclick="useTpl('analyze')">🔬 Analyze</button>
+  <button class="tbtn" onclick="useTpl('agent')">🤖 Run Agent</button>
+  <button class="tbtn" onclick="useTpl('prompt')">✏ Prompt Gen</button>
+  <button class="tbtn" onclick="useTpl('debug')">🐛 Debug</button>
+</div>
+<div id="iarea">
+  <textarea id="inp" placeholder="Message KNOCKS NET..." rows="1" onkeydown="handleKey(event)" oninput="autoR(this)"></textarea>
+  <button id="sbtn" onclick="doSend()">➤</button>
+  <button id="xbtn" onclick="stopIt()">■</button>
+</div>
+<div id="meta"><span id="mlbl">deepseek-v3</span><span id="tkn">0 tokens</span></div>
+<div id="ov" onclick="closeSOuter(event)">
+  <div id="sp">
+    <h2>⚙ KNOCKS NET Settings</h2>
+    <div class="sr"><label>Ollama URL</label><input id="ou" value="http://localhost:11434"></div>
+    <div class="sr"><label>llama.cpp URL</label><input id="lu" value="http://localhost:8080"></div>
+    <div class="sr"><label>Agent / luminous.py URL</label><input id="au" value="http://localhost:5000"></div>
+    <div class="sr"><label>System Prompt</label><textarea id="sysp">You are LUMINESCENT OMNI, a powerful AI assistant built by KNOCKS STUDIOS. You are precise, creative, and direct.</textarea></div>
+    <div class="sr"><label>Temperature (0-2)</label><input id="tmp" type="number" min="0" max="2" step="0.1" value="0.7"></div>
+    <div class="br2"><button class="bp" onclick="saveS()">Save</button><button class="bs" onclick="closeS()">Cancel</button></div>
+    <div class="br2"><button class="bs" onclick="testConn()">Test Connection</button><button class="bs" onclick="clearChat()">Clear Chat</button></div>
+  </div>
+</div>
+<script>
+var M='deepseek-v3',AC=null,TC=0,H=[];
+var S={ol:localStorage.getItem('ol')||'http://localhost:11434',ll:localStorage.getItem('ll')||'http://localhost:8080',ag:localStorage.getItem('ag')||'http://localhost:5000',sy:localStorage.getItem('sy')||'You are LUMINESCENT OMNI, a powerful AI assistant built by KNOCKS STUDIOS. You are precise, creative, and direct.',tp:parseFloat(localStorage.getItem('tp')||'0.7')};
+var TPLS={code:'Write production-ready code for: ',explain:'Explain this step by step with examples:\n\n',creative:'Write something creative and original about: ',analyze:'Deeply analyze the following and provide key insights:\n\n',agent:'[AGENT_TASK] Route and execute: ',prompt:'Generate 5 powerful detailed prompts for: ',debug:'Debug this and explain the fix:\n\n'};
+function setM(b){document.querySelectorAll('.mbtn').forEach(function(x){x.classList.remove('on')});b.classList.add('on');M=b.dataset.m;document.getElementById('mlbl').textContent=M;}
+function useTpl(k){var el=document.getElementById('inp');el.value=TPLS[k];el.focus();autoR(el);}
+function autoR(el){el.style.height='auto';el.style.height=Math.min(el.scrollHeight,100)+'px';}
+function handleKey(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();doSend();}}
+function addMsg(role,txt){var c=document.getElementById('chat');var d=document.createElement('div');d.className='msg '+role;if(role==='a')d.id='cur';d.textContent=txt;c.appendChild(d);c.scrollTop=c.scrollHeight;return d;}
+function scroll(){var c=document.getElementById('chat');c.scrollTop=c.scrollHeight;}
+function updTk(n){TC+=n;document.getElementById('tkn').textContent=TC+' tokens';}
+function showStop(v){document.getElementById('sbtn').style.display=v?'none':'flex';document.getElementById('xbtn').style.display=v?'flex':'none';}
+async function doSend(){var el=document.getElementById('inp');var txt=el.value.trim();if(!txt)return;el.value='';el.style.height='auto';addMsg('u',txt);H.push({role:'user',content:txt});showStop(true);var ai=addMsg('a','');ai.innerHTML='<span class="dot-anim"><span>▪</span><span>▪</span><span>▪</span></span>';AC=new AbortController();try{if(M==='luminous')await callAgent(ai,txt);else if(M==='auto')await callRouter(ai,txt);else await callOllama(ai,txt);}catch(e){if(e.name!=='AbortError'){try{await callLlama(ai,txt);}catch(e2){ai.textContent='Cannot connect to KNOCKS NET. Open Settings and check server URLs.';}}}showStop(false);}
+async function callOllama(ai,prompt){ai.textContent='';var msgs=[{role:'system',content:S.sy}].concat(H.slice(-8));var r=await fetch(S.ol+'/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:M,messages:msgs,stream:true,options:{temperature:S.tp}}),signal:AC.signal});if(!r.ok)throw new Error('ollama '+r.status);var rd=r.body.getReader(),dec=new TextDecoder(),full='';while(true){var x=await rd.read();if(x.done)break;var lines=dec.decode(x.value).split('\n').filter(function(l){return l.trim();});for(var i=0;i<lines.length;i++){try{var j=JSON.parse(lines[i]);var tok=j.message&&j.message.content?j.message.content:'';if(tok){ai.textContent+=tok;full+=tok;updTk(1);scroll();}}catch(e){}}}if(full)H.push({role:'assistant',content:full});}
+async function callLlama(ai,prompt){ai.textContent='';var fp=S.sy+'\n\nUser: '+prompt+'\n\nAssistant:';var r=await fetch(S.ll+'/completion',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({prompt:fp,n_predict:512,stream:true,temperature:S.tp}),signal:AC.signal});if(!r.ok)throw new Error('llamacpp '+r.status);var rd=r.body.getReader(),dec=new TextDecoder(),full='';while(true){var x=await rd.read();if(x.done)break;var lines=dec.decode(x.value).split('\n');for(var i=0;i<lines.length;i++){var ln=lines[i].trim();if(!ln.startsWith('data:'))continue;try{var j=JSON.parse(ln.slice(5));var tok=j.content||'';if(tok){ai.textContent+=tok;full+=tok;updTk(1);scroll();}if(j.stop)break;}catch(e){}}}if(full)H.push({role:'assistant',content:full});}
+async function callAgent(ai,prompt){ai.textContent='';try{var r=await fetch(S.ag+'/generate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({prompt:prompt,model:'luminous',history:H.slice(-4)}),signal:AC.signal});var j=await r.json();var txt=j.response||j.output||JSON.stringify(j);ai.textContent=txt;H.push({role:'assistant',content:txt});}catch(e){await callOllama(ai,prompt);}}
+async function callRouter(ai,prompt){ai.textContent='Analyzing prompt and routing...';await new Promise(function(r){setTimeout(r,350);});var low=prompt.toLowerCase();var chosen,label;if(/code|function|bug|debug|script|class|api|json|sql/.test(low)){chosen='deepseek-v3';label='DeepSeek-V3 (Code)';}else if(/story|creative|poem|write|fiction|song|art/.test(low)){chosen='llama3:8b-instruct-q4_K_M';label='LLaMA-3-8B (Creative)';}else if(/agent|task|do|run|execute|search|fetch/.test(low)){chosen='luminous';label='Luminous Agent';}else{chosen='deepseek-v3';label='DeepSeek-V3 (General)';}ai.textContent='Routed to '+label+'\n\n';M=chosen;if(chosen==='luminous')await callAgent(ai,prompt);else await callOllama(ai,prompt);}
+function stopIt(){if(AC){AC.abort();AC=null;}showStop(false);}
+function openS(){document.getElementById('ou').value=S.ol;document.getElementById('lu').value=S.ll;document.getElementById('au').value=S.ag;document.getElementById('sysp').value=S.sy;document.getElementById('tmp').value=S.tp;document.getElementById('ov').classList.add('open');}
+function closeS(){document.getElementById('ov').classList.remove('open');}
+function closeSOuter(e){if(e.target===document.getElementById('ov'))closeS();}
+function saveS(){S.ol=document.getElementById('ou').value.trim().replace(/\/$/,'');S.ll=document.getElementById('lu').value.trim().replace(/\/$/,'');S.ag=document.getElementById('au').value.trim().replace(/\/$/,'');S.sy=document.getElementById('sysp').value.trim();S.tp=parseFloat(document.getElementById('tmp').value)||0.7;localStorage.setItem('ol',S.ol);localStorage.setItem('ll',S.ll);localStorage.setItem('ag',S.ag);localStorage.setItem('sy',S.sy);localStorage.setItem('tp',S.tp);closeS();chkConn();}
+async function testConn(){var url=document.getElementById('ou').value.trim().replace(/\/$/,'');try{var r=await fetch(url+'/api/tags',{signal:AbortSignal.timeout(3000)});if(r.ok){var j=await r.json();var ms=j.models?j.models.map(function(m){return m.name;}).join(', '):'none loaded';alert('Connected!\nModels: '+ms);return;}}catch(e){}try{var r2=await fetch(document.getElementById('lu').value.trim()+'/health',{signal:AbortSignal.timeout(2000)});if(r2.ok){alert('llama.cpp is online!');return;}}catch(e2){}alert('Cannot connect. Make sure Ollama or llama.cpp is running in NET/CORE/');}
+async function chkConn(){var dot=document.getElementById('dot');var stxt=document.getElementById('stxt');try{var r=await fetch(S.ol+'/api/tags',{signal:AbortSignal.timeout(2000)});if(r.ok){dot.className='on';stxt.textContent='NET online';return;}}catch(e){}try{var r2=await fetch(S.ll+'/health',{signal:AbortSignal.timeout(2000)});if(r2.ok){dot.className='on';stxt.textContent='llama.cpp online';return;}}catch(e2){}dot.className='';stxt.textContent='NET offline';}
+function clearChat(){document.getElementById('chat').innerHTML='<div class="msg s">LUMINESCENT OMNI • KNOCKS NET v1.0 • DeepSeek-V3 + LLaMA-3-8B</div>';H=[];TC=0;document.getElementById('tkn').textContent='0 tokens';closeS();}
+chkConn();setInterval(chkConn,15000);
+</script>
+</body>
+</html>
