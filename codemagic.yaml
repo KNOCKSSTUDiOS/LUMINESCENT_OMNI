@@ -1,0 +1,21 @@
+workflows:
+  android-build:
+    name: LUMINESCENT_OMNI APK
+    max_build_duration: 30
+    environment:
+      node: 20
+      java: 17
+    scripts:
+      - name: Install deps
+        script: npm install
+      - name: Add Android
+        script: npx cap add android || true
+      - name: Sync
+        script: npx cap sync android
+      - name: Build APK
+        script: |
+          cd android
+          chmod +x gradlew
+          ./gradlew assembleDebug --no-daemon
+    artifacts:
+      - android/app/build/outputs/apk/debug/*.apk
