@@ -1,0 +1,8 @@
+{
+  "appId": "com.knocksstudios.omnirender",
+  "appName": "LUMINESCENT_OMNI",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  }
+}

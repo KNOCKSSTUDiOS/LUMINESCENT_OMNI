@@ -1,0 +1,10 @@
+{
+  "name": "luminescent-omni",
+  "version": "1.0.0",
+  "description": "KNOCKSSTUDiOS OmniRender",
+  "dependencies": {
+    "@capacitor/core": "6.0.0",
+    "@capacitor/android": "6.0.0",
+    "@capacitor/cli": "6.0.0"
+  }
+}
