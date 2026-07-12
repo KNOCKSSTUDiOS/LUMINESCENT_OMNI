@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- 🔥 KNOCKSSTUDiOS • LUMINESCENT OMNI -->
+    <title>LUMINESCENT OMNI • Quantum‑44 Fabricator</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+    <!-- 🔥 BRAND DESCRIPTION -->
+    <meta name="description" content="LUMINESCENT OMNI • KNOCKSSTUDiOS Quantum‑44 Fabricator • UltraHDR GPU Engine">
+
+    <!-- 🔥 BRAND COLOR (Quantum 44 Teal) -->
+    <meta name="theme-color" content="#00F0FF">
+
+    <!-- 🔥 CSS -->
+    <style>
+        body {
+            margin: 0;
+            background: #000;
+            color: #00F0FF;
+            font-family: 'Inter', sans-serif;
+            overflow: hidden;
+        }
+        #info {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 14px;
+            color: #00F0FF;
+            z-index: 10;
+            text-shadow: 0 0 10px #00F0FF;
+        }
+    </style>
+
+    <!-- 🔥 IMPORT MAP -->
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.168.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.168.0/examples/jsm/"
+        }
+    }
+    </script>
+
+</head>
+<body>
+
+    <!-- 🔥 BRAND INFO BLOCK -->
+    <div id="info">
+        <strong>KNOCKSSTUDiOS • LUMINESCENT OMNI</strong><br/>
+        Quantum‑44 Fabricator • UltraHDR GPU Engine<br/>
+        Powered by three.js<br/>
+    </div>
+
+    <!-- 🔥 ENGINE MODULE -->
+    <script type="module">
+
+        import * as THREE from 'three';
+        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+        import { GUI } from 'three/addons/libs/lil-gui.module.min.js';
+
+        /* 🔥 PARAMS */
+        const params = {
+            autoRotate: true,
+            metalness: 1.0,
+            roughness: 0.0,
+            exposure: 1.2,
+            color: '#00F0FF'
+        };
+
+        /* 🔥 CORE VARS */
+        let renderer, scene, camera, controls, mesh;
+
+        init();
+
+        function init() {
+
+            /* 🔥 RENDERER */
+            renderer = new THREE.WebGLRenderer({ antialias: true });
+            renderer.setPixelRatio(window.devicePixelRatio);
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.toneMapping = THREE.ACESFilmicToneMapping;
+            renderer.toneMappingExposure = params.exposure;
+            document.body.appendChild(renderer.domElement);
+
+            /* 🔥 SCENE */
+            scene = new THREE.Scene();
+
+            /* 🔥 CAMERA */
+            camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.1, 500);
+            camera.position.set(0, 0, -6);
+
+            /* 🔥 CONTROLS */
+            controls = new OrbitControls(camera, renderer.domElement);
+
+            /* 🔥 OBJECT */
+            mesh = new THREE.Mesh(
+                new THREE.TorusKnotGeometry(1, 0.4, 256, 32),
+                new THREE.MeshStandardMaterial({
+                    metalness: params.metalness,
+                    roughness: params.roughness,
+                    color: new THREE.Color(params.color)
+                })
+            );
+            scene.add(mesh);
+
+            /* 🔥 LIGHT */
+            scene.add(new THREE.AmbientLight(0xffffff, 3));
+
+            /* 🔥 GUI */
+            const gui = new GUI();
+            gui.add(params, 'autoRotate');
+            gui.addColor(params, 'color').onChange(v => mesh.material.color = new THREE.Color(v));
+            gui.add(params, 'metalness', 0, 1, 0.01);
+            gui.add(params, 'roughness', 0, 1, 0.01);
+            gui.add(params, 'exposure', 0, 4, 0.01).onChange(v => renderer.toneMappingExposure = v);
+            gui.open();
+
+            /* 🔥 RESIZE */
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+
+            renderer.setAnimationLoop(render);
+        }
+
+        function render() {
+            if (params.autoRotate) mesh.rotation.y += 0.005;
+            controls.update();
+            renderer.render(scene, camera);
+        }
+
+    </script>
+
+</body>
+</html>
