@@ -5,10 +5,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <title>LUMINESCENT OMNI</title>
 <style>
-:root{--bg:#070710;--bg2:#0f0f1e;--bg3:#16162a;--bg4:#1e1e35;--ac:#7c3aed;--ac2:#a855f7;--ac3:#6d28d9;--cy:#06b6d4;--gr:#10b981;--rd:#ef4444;--yw:#f59e0b;--tx:#e2e8f0;--tx2:#94a3b8;--tx3:#64748b;--br:#252540;--br2:#2d2d50;--inp:#0d0d20}
+:root{--bg:#070710;--bg2:#0f0f1e;--bg3:#16162a;--bg4:#1e1e35;--ac:#7c3aed;--ac2:#a855f7;--ac3:#6d28d9;--cy:#06b6d4;--gr:#10b981;--rd:#ef4444;--yw:#f59e0b;--tx:#e2e8f0;--tx2:#94a3b8;--tx3:#64748b;--br:#2d2d44;--br2:#1f1f32;--inp:#0a0a14}
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 body{background:var(--bg);color:var(--tx);font-family:'Segoe UI',system-ui,sans-serif;height:100vh;display:flex;flex-direction:column;overflow:hidden;user-select:none}
-/* HEADER */
 #hdr{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:var(--bg2);border-bottom:1px solid var(--br);flex-shrink:0;gap:8px}
 #logo{font-size:13px;font-weight:900;letter-spacing:1.5px;background:linear-gradient(135deg,#7c3aed 0%,#a855f7 50%,#06b6d4 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;white-space:nowrap}
 #net-status{display:flex;align-items:center;gap:5px;background:var(--bg3);border:1px solid var(--br);border-radius:20px;padding:4px 10px;cursor:pointer}
@@ -17,25 +16,20 @@ body{background:var(--bg);color:var(--tx);font-family:'Segoe UI',system-ui,sans-
 #dot.warn{background:var(--yw)}
 #stxt{font-size:10px;color:var(--tx2);white-space:nowrap}
 #hgear{background:none;border:none;color:var(--tx2);font-size:18px;cursor:pointer;padding:2px 4px}
-/* PAGES */
 #pages{flex:1;overflow:hidden;position:relative}
 .pg{position:absolute;inset:0;display:none;flex-direction:column;overflow:hidden}
 .pg.on{display:flex}
-/* BOTTOM NAV */
 #bnav{display:flex;background:var(--bg2);border-top:1px solid var(--br);flex-shrink:0}
-.nb{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:7px 2px 5px;gap:2px;cursor:pointer;border:none;background:transparent;color:var(--tx3);transition:color .2s;font-size:9px;font-weight:600;letter-spacing:.3px}
+.nb{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:7px 2px 5px;gap:2px;cursor:pointer;border:none;background:transparent;color:var(--tx3);transition:color .2s}
 .nb .ni{font-size:19px;line-height:1}
 .nb.on{color:var(--ac2)}
 .nb.on .ni{filter:drop-shadow(0 0 4px var(--ac2))}
-/* SECTION HEADERS */
 .shdr{padding:10px 14px 8px;background:var(--bg2);border-bottom:1px solid var(--br);flex-shrink:0}
 .stitle{font-size:12px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--tx2)}
-/* MODEL PILLS */
 #mbar{display:flex;gap:5px;padding:8px 12px;background:var(--bg2);border-bottom:1px solid var(--br);overflow-x:auto;flex-shrink:0;scrollbar-width:none}
 #mbar::-webkit-scrollbar{display:none}
 .mp{padding:4px 11px;border-radius:20px;border:1px solid var(--br2);background:transparent;color:var(--tx3);font-size:10px;cursor:pointer;white-space:nowrap;transition:all .18s;font-weight:600}
 .mp.on{background:var(--ac);border-color:var(--ac);color:#fff}
-/* CHAT */
 #chatscroll{flex:1;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:8px}
 .cm{max-width:92%;padding:9px 13px;border-radius:14px;font-size:13px;line-height:1.65;word-break:break-word;white-space:pre-wrap}
 .cm.u{background:linear-gradient(135deg,var(--ac3),var(--ac));align-self:flex-end;border-radius:14px 14px 3px 14px;color:#fff}
@@ -45,14 +39,12 @@ body{background:var(--bg);color:var(--tx);font-family:'Segoe UI',system-ui,sans-
 .dots span:nth-child(2){animation-delay:.2s}
 .dots span:nth-child(3){animation-delay:.4s}
 @keyframes bk{0%,80%,100%{opacity:.2}40%{opacity:1}}
-/* QUICK ACTIONS (chat) */
 #qa{display:flex;gap:5px;padding:6px 10px;overflow-x:auto;flex-shrink:0;scrollbar-width:none;border-top:1px solid var(--br)}
 #qa::-webkit-scrollbar{display:none}
 .qa{padding:4px 10px;border-radius:10px;border:1px solid var(--br2);background:transparent;color:var(--tx3);font-size:10px;cursor:pointer;white-space:nowrap;transition:all .18s}
 .qa:hover{border-color:var(--ac2);color:var(--ac2)}
-/* INPUT */
 #ibar{display:flex;gap:6px;padding:8px 10px;background:var(--bg2);border-top:1px solid var(--br);align-items:flex-end;flex-shrink:0}
-#cinp{flex:1;background:var(--inp);border:1px solid var(--br2);border-radius:12px;color:var(--tx);font-size:13px;padding:8px 12px;resize:none;max-height:90px;min-height:36px;outline:none;font-family:inherit;line-height:1.5;transition:border-color .2s}
+#cinp{flex:1;background:var(--inp);border:1px solid var(--br2);border-radius:12px;color:var(--tx);font-size:13px;padding:8px 12px;resize:none;max-height:90px;min-height:36px;outline:none;font-family:inherit}
 #cinp:focus{border-color:var(--ac)}
 .send-btn{width:36px;height:36px;border-radius:10px;border:none;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:15px;transition:all .18s}
 #sbtn{background:var(--ac)}
@@ -60,22 +52,20 @@ body{background:var(--bg);color:var(--tx);font-family:'Segoe UI',system-ui,sans-
 #sbtn:disabled{background:var(--br);cursor:not-allowed}
 #xbtn{background:var(--rd);display:none}
 #tokbar{display:flex;justify-content:space-between;padding:2px 12px;background:var(--bg);font-size:9px;color:var(--tx3);flex-shrink:0}
-/* FORGE (Code) */
 .forge-wrap{flex:1;display:flex;flex-direction:column;overflow:hidden}
 .lang-row{display:flex;gap:5px;padding:8px 12px;overflow-x:auto;flex-shrink:0;scrollbar-width:none;border-bottom:1px solid var(--br)}
 .lang-row::-webkit-scrollbar{display:none}
 .lp{padding:4px 11px;border-radius:8px;border:1px solid var(--br2);background:transparent;color:var(--tx3);font-size:10px;cursor:pointer;transition:all .18s;font-weight:600}
 .lp.on{background:var(--cy);border-color:var(--cy);color:#000}
 .forge-prompt{display:flex;gap:6px;padding:8px 10px;background:var(--bg2);border-bottom:1px solid var(--br);align-items:flex-end;flex-shrink:0}
-#finp{flex:1;background:var(--inp);border:1px solid var(--br2);border-radius:10px;color:var(--tx);font-size:12px;padding:7px 10px;outline:none;font-family:inherit;resize:none;max-height:70px;min-height:32px;line-height:1.5}
+#finp{flex:1;background:var(--inp);border:1px solid var(--br2);border-radius:10px;color:var(--tx);font-size:12px;padding:7px 10px;outline:none;font-family:inherit;resize:none;max-height:70px;min-height:32px}
 #finp:focus{border-color:var(--cy)}
 .fgen-btn{padding:0 14px;height:32px;border-radius:8px;background:var(--cy);border:none;color:#000;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap}
 #code-out{flex:1;overflow-y:auto;padding:12px}
-#code-box{background:var(--bg3);border:1px solid var(--br);border-radius:12px;padding:12px;font-family:'Courier New',monospace;font-size:12px;line-height:1.7;color:#a5f3fc;white-space:pre-wrap;min-height:60px;position:relative}
+#code-box{background:var(--bg3);border:1px solid var(--br);border-radius:12px;padding:12px;font-family:'Courier New',monospace;font-size:12px;line-height:1.7;color:#a5f3fc;white-space:pre-wrap;min-height:100px}
 .code-hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
 .code-lang-lbl{font-size:10px;color:var(--cy);font-weight:700;letter-spacing:1px;text-transform:uppercase}
 .copy-btn{padding:3px 10px;background:var(--bg4);border:1px solid var(--br2);border-radius:6px;color:var(--tx2);font-size:10px;cursor:pointer}
-/* CRAFT */
 .craft-wrap{flex:1;display:flex;flex-direction:column;overflow:hidden}
 .craft-types{display:flex;gap:5px;padding:8px 12px;overflow-x:auto;flex-shrink:0;scrollbar-width:none;border-bottom:1px solid var(--br)}
 .craft-types::-webkit-scrollbar{display:none}
@@ -86,12 +76,11 @@ body{background:var(--bg);color:var(--tx);font-family:'Segoe UI',system-ui,sans-
 #craft-inp:focus{border-color:var(--yw)}
 .craft-gen{padding:0 14px;height:32px;border-radius:8px;background:var(--yw);border:none;color:#000;font-size:12px;font-weight:700;cursor:pointer}
 #craft-out{flex:1;overflow-y:auto;padding:12px}
-#craft-box{background:var(--bg3);border:1px solid var(--br);border-radius:12px;padding:14px;font-size:13px;line-height:1.75;color:var(--tx);white-space:pre-wrap;min-height:60px}
+#craft-box{background:var(--bg3);border:1px solid var(--br);border-radius:12px;padding:14px;font-size:13px;line-height:1.75;color:var(--tx);white-space:pre-wrap;min-height:100px}
 .craft-actions{display:flex;gap:6px;margin-top:10px}
 .ca-btn{flex:1;padding:8px;background:var(--bg4);border:1px solid var(--br2);border-radius:8px;color:var(--tx2);font-size:11px;cursor:pointer;text-align:center}
-/* AGENTS */
 .agents-wrap{flex:1;display:flex;flex-direction:column;overflow:hidden}
-.agent-list{flex-shrink:0;padding:10px;display:flex;flex-direction:column;gap:6px}
+.agent-list{flex-shrink:0;padding:10px;display:flex;flex-direction:column;gap:6px;max-height:40vh;overflow-y:auto}
 .agent-card{background:var(--bg3);border:1px solid var(--br);border-radius:12px;padding:12px;display:flex;align-items:center;gap:10px;cursor:pointer;transition:border-color .18s}
 .agent-card:active{border-color:var(--ac2)}
 .agent-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
@@ -100,12 +89,11 @@ body{background:var(--bg);color:var(--tx);font-family:'Segoe UI',system-ui,sans-
 .agent-desc{font-size:10px;color:var(--tx3);margin-top:2px}
 .agent-run{padding:5px 12px;border-radius:8px;background:var(--ac);border:none;color:#fff;font-size:11px;cursor:pointer;white-space:nowrap}
 #agent-output{flex:1;overflow-y:auto;padding:12px}
-#agent-box{background:var(--bg3);border:1px solid var(--br);border-radius:12px;padding:12px;font-size:13px;line-height:1.65;color:var(--tx);white-space:pre-wrap;min-height:60px}
+#agent-box{background:var(--bg3);border:1px solid var(--br);border-radius:12px;padding:12px;font-size:13px;line-height:1.65;color:var(--tx);white-space:pre-wrap;min-height:100px}
 #agent-inp-row{display:flex;gap:6px;padding:8px 10px;background:var(--bg2);border-top:1px solid var(--br);flex-shrink:0}
 #agent-inp{flex:1;background:var(--inp);border:1px solid var(--br2);border-radius:10px;color:var(--tx);font-size:12px;padding:7px 10px;outline:none;font-family:inherit}
 #agent-inp:focus{border-color:var(--ac)}
 .agent-send{padding:0 14px;height:34px;border-radius:8px;background:var(--ac);border:none;color:#fff;font-size:12px;font-weight:700;cursor:pointer}
-/* FILES */
 .files-wrap{flex:1;display:flex;flex-direction:column;overflow:hidden}
 .files-toolbar{display:flex;gap:6px;padding:8px 12px;border-bottom:1px solid var(--br);flex-shrink:0;align-items:center}
 #path-lbl{flex:1;font-size:11px;color:var(--cy);font-family:monospace;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -117,7 +105,6 @@ body{background:var(--bg);color:var(--tx);font-family:'Segoe UI',system-ui,sans-
 .fi-name{flex:1;font-size:12px;color:var(--tx);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .fi-size{font-size:10px;color:var(--tx3);white-space:nowrap}
 #files-empty{padding:40px;text-align:center;color:var(--tx3);font-size:13px;display:none}
-/* SETTINGS SHEET */
 #ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:200;align-items:flex-end}
 #ov.open{display:flex}
 #ssheet{width:100%;background:var(--bg2);border-radius:18px 18px 0 0;padding:18px;max-height:88vh;overflow-y:auto}
@@ -137,7 +124,6 @@ body{background:var(--bg);color:var(--tx);font-family:'Segoe UI',system-ui,sans-
 </head>
 <body>
 
-<!-- HEADER -->
 <div id="hdr">
   <div id="logo">⬡ LUMINESCENT OMNI</div>
   <div id="net-status" onclick="chkConn()">
@@ -146,10 +132,8 @@ body{background:var(--bg);color:var(--tx);font-family:'Segoe UI',system-ui,sans-
   <button id="hgear" onclick="openS()">⚙</button>
 </div>
 
-<!-- PAGES -->
 <div id="pages">
 
-  <!-- CHAT PAGE -->
   <div class="pg on" id="pg-chat">
     <div id="mbar">
       <button class="mp on" data-m="deepseek-v3" onclick="setM(this)">⚡ DeepSeek-V3</button>
@@ -179,7 +163,6 @@ body{background:var(--bg);color:var(--tx);font-family:'Segoe UI',system-ui,sans-
     <div id="tokbar"><span id="mlbl">deepseek-v3</span><span id="tkn">0 tokens</span></div>
   </div>
 
-  <!-- FORGE (CODE) PAGE -->
   <div class="pg" id="pg-forge">
     <div class="shdr"><div class="stitle">⚡ Code Forge — AI Code Generator</div></div>
     <div class="lang-row" id="langs">
@@ -208,7 +191,6 @@ body{background:var(--bg);color:var(--tx);font-family:'Segoe UI',system-ui,sans-
     </div>
   </div>
 
-  <!-- CRAFT (CONTENT) PAGE -->
   <div class="pg" id="pg-craft">
     <div class="shdr"><div class="stitle">✍ Content Craft — AI Content Creator</div></div>
     <div class="craft-types" id="ctypes">
@@ -237,7 +219,6 @@ Select a content type and describe your topic above.</div>
     </div>
   </div>
 
-  <!-- AGENTS PAGE -->
   <div class="pg" id="pg-agents">
     <div class="shdr"><div class="stitle">🤖 KNOCKS NET Agents</div></div>
     <div class="agents-wrap">
@@ -267,8 +248,8 @@ Select a content type and describe your topic above.</div>
           <button class="agent-run" onclick="selectAgent('ghost');event.stopPropagation()">Run</button>
         </div>
       </div>
-      <div id="agent-output" style="flex:1;overflow-y:auto;padding:10px">
-        <div id="agent-box" style="background:var(--bg3);border:1px solid var(--br);border-radius:12px;padding:12px;font-size:13px;line-height:1.65;color:var(--tx);white-space:pre-wrap;min-height:60px">Select an agent above and send a task below.</div>
+      <div id="agent-output">
+        <div id="agent-box">Agent output will appear here.</div>
       </div>
       <div id="agent-inp-row">
         <input id="agent-inp" type="text" placeholder="Task for selected agent..."
@@ -278,7 +259,6 @@ Select a content type and describe your topic above.</div>
     </div>
   </div>
 
-  <!-- FILES PAGE -->
   <div class="pg" id="pg-files">
     <div class="shdr"><div class="stitle">📁 NET File System</div></div>
     <div class="files-toolbar">
@@ -296,7 +276,6 @@ Select a content type and describe your topic above.</div>
 
 </div>
 
-<!-- BOTTOM NAV -->
 <div id="bnav">
   <button class="nb on" onclick="goPage('chat',this)">
     <span class="ni">💬</span>CHAT
@@ -315,7 +294,6 @@ Select a content type and describe your topic above.</div>
   </button>
 </div>
 
-<!-- SETTINGS SHEET -->
 <div id="ov" onclick="closeSOuter(event)">
   <div id="ssheet">
     <h2>⚙ KNOCKS NET Settings</h2>
@@ -333,7 +311,7 @@ Select a content type and describe your topic above.</div>
     </div>
     <div class="sf"><label>Temperature (0.0 – 2.0)</label><input id="s-tmp" type="number" min="0" max="2" step="0.1" value="0.7"></div>
     <div class="sf"><label>System Prompt</label>
-      <textarea id="s-sys" rows="3">You are LUMINESCENT OMNI, a powerful AI assistant built by KNOCKS STUDIOS. You are precise, fast, and creative. You run on the KNOCKS NET infrastructure with DeepSeek-V3 and LLaMA-3-8B.</textarea>
+      <textarea id="s-sys" rows="3">You are LUMINESCENT OMNI, a powerful AI assistant built by KNOCKS STUDIOS. You are precise, fast, and creative. You run on the KNOCKS NET infrastructure with DeepSeek-V3 and LLaMA-3.</textarea>
     </div>
     <div class="section-div"></div>
     <div class="sbr">
@@ -348,345 +326,94 @@ Select a content type and describe your topic above.</div>
 </div>
 
 <script>
-// STATE
-var CUR_MODEL='deepseek-v3', AB=null, TOK=0, HIST=[], CUR_LANG='javascript', CUR_TYPE='blog', CUR_AGENT='knocksstudios', LAST_CRAFT='', FILE_PATH='';
-var S={
-  ol:ls('ol')||'http://localhost:11434',
-  ll:ls('ll')||'http://localhost:8080',
-  ag:ls('ag')||'http://localhost:5000',
-  fs:ls('fs')||'http://localhost:7000',
-  sys:ls('sys')||'You are LUMINESCENT OMNI, a powerful AI assistant built by KNOCKS STUDIOS. You are precise, fast, and creative. You run on the KNOCKS NET infrastructure with DeepSeek-V3 and LLaMA-3-8B.',
-  tmp:parseFloat(ls('tmp')||'0.7')
-};
-function ls(k){return localStorage.getItem('kn_'+k);}
-function ss(k,v){localStorage.setItem('kn_'+k,v);}
+const APP={model:'deepseek-v3',abort:null,tokens:0,history:[],lang:'javascript',contentType:'blog',agent:'knocksstudios',filePath:'',settings:{}};
+const DEFAULTS={ol:'http://localhost:11434',ll:'http://localhost:8080',ag:'http://localhost:5000',fs:'http://localhost:7000',sys:'You are LUMINESCENT OMNI, a powerful AI assistant built by KNOCKS STUDIOS. You are precise, fast, and creative.',tmp:0.7};
 
-// NAVIGATION
-function goPage(id,btn){
-  document.querySelectorAll('.pg').forEach(function(p){p.classList.remove('on')});
-  document.querySelectorAll('.nb').forEach(function(b){b.classList.remove('on')});
-  document.getElementById('pg-'+id).classList.add('on');
-  btn.classList.add('on');
-  if(id==='files')loadFiles();
-}
+function ls(k){return localStorage.getItem('kn_'+k)}
+function ss(k,v){localStorage.setItem('kn_'+k,v)}
 
-// MODEL SELECT
-function setM(b){
-  document.querySelectorAll('.mp').forEach(function(x){x.classList.remove('on')});
-  b.classList.add('on');
-  CUR_MODEL=b.dataset.m;
-  document.getElementById('mlbl').textContent=CUR_MODEL;
-}
+function initSettings(){APP.settings={ol:ls('ol')||DEFAULTS.ol,ll:ls('ll')||DEFAULTS.ll,ag:ls('ag')||DEFAULTS.ag,fs:ls('fs')||DEFAULTS.fs,sys:ls('sys')||DEFAULTS.sys,tmp:parseFloat(ls('tmp'))||DEFAULTS.tmp}}
 
-// QUICK INPUT
-function qi(t){var el=document.getElementById('cinp');el.value=t;el.focus();ar(el);}
+async function fetchStream(url,opts,onChunk){const r=await fetch(url,{...opts,signal:APP.abort?.signal});if(!r.ok)throw new Error(`HTTP ${r.status}`);const rd=r.body.getReader(),dec=new TextDecoder();const read=async()=>{const {done,value}=await rd.read();if(done)return;dec.decode(value).split('\n').filter(Boolean).forEach(onChunk);return read()};return read()}
 
-// AUTO RESIZE
-function ar(el){el.style.height='auto';el.style.height=Math.min(el.scrollHeight,90)+'px';}
+function goPage(id,btn){document.querySelectorAll('.pg').forEach(p=>p.classList.remove('on'));document.querySelectorAll('.nb').forEach(b=>b.classList.remove('on'));document.getElementById('pg-'+id).classList.add('on');btn.classList.add('on');if(id==='files')loadFiles()}
 
-// CHAT KEY
-function ck(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();doSend();}}
-function fk(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();forgeGen();}}
+function setM(b){document.querySelectorAll('.mp').forEach(x=>x.classList.remove('on'));b.classList.add('on');APP.model=b.dataset.m;document.getElementById('mlbl').textContent=APP.model}
 
-// ADD MESSAGE
-function addMsg(role,txt){
-  var c=document.getElementById('chatscroll');
-  var d=document.createElement('div');
-  d.className='cm '+role;
-  if(role==='a')d.id='cura';
-  d.textContent=txt;
-  c.appendChild(d);
-  c.scrollTop=c.scrollHeight;
-  return d;
-}
-function scrollChat(){var c=document.getElementById('chatscroll');c.scrollTop=c.scrollHeight;}
-function showX(v){
-  document.getElementById('sbtn').style.display=v?'none':'flex';
-  document.getElementById('xbtn').style.display=v?'flex':'none';
-}
+function qi(t){const el=document.getElementById('cinp');el.value=t;el.focus();ar(el)}
 
-// SEND CHAT
-async function doSend(){
-  var el=document.getElementById('cinp');
-  var txt=el.value.trim();
-  if(!txt)return;
-  el.value='';el.style.height='auto';
-  addMsg('u',txt);
-  HIST.push({role:'user',content:txt});
-  showX(true);
-  var ai=addMsg('a','');
-  ai.innerHTML='<span class="dots"><span>▪</span><span>▪</span><span>▪</span></span>';
-  AB=new AbortController();
-  try{
-    if(CUR_MODEL==='auto')await routeAndCall(ai,txt);
-    else if(CUR_MODEL==='luminous'||CUR_MODEL==='ghost')await callAgent(ai,txt,CUR_MODEL);
-    else await callOllama(ai,txt);
-  }catch(e){
-    if(e.name!=='AbortError'){
-      try{await callLlama(ai,txt);}
-      catch(e2){ai.textContent='⚠ Cannot reach KNOCKS NET. Check server in Settings ⚙';}
-    }
-  }
-  showX(false);
-}
+function ar(el){el.style.height='auto';el.style.height=Math.min(el.scrollHeight,90)+'px'}
 
-async function callOllama(ai,prompt){
-  ai.textContent='';
-  var msgs=[{role:'system',content:S.sys}].concat(HIST.slice(-10));
-  var r=await fetch(S.ol+'/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:CUR_MODEL,messages:msgs,stream:true,options:{temperature:S.tmp}}),signal:AB.signal});
-  if(!r.ok)throw new Error(r.status);
-  var rd=r.body.getReader(),dec=new TextDecoder(),full='';
-  while(true){
-    var x=await rd.read();if(x.done)break;
-    dec.decode(x.value).split('\n').filter(Boolean).forEach(function(ln){
-      try{var j=JSON.parse(ln);var t=(j.message&&j.message.content)||'';if(t){ai.textContent+=t;full+=t;TOK++;document.getElementById('tkn').textContent=TOK+' tokens';scrollChat();}}catch(e){}
-    });
-  }
-  if(full)HIST.push({role:'assistant',content:full});
-}
+function ck(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();doSend()}}
+function fk(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();forgeGen()}}
 
-async function callLlama(ai,prompt){
-  ai.textContent='';
-  var fp=S.sys+'\n\nUser: '+prompt+'\n\nAssistant:';
-  var r=await fetch(S.ll+'/completion',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({prompt:fp,n_predict:768,stream:true,temperature:S.tmp}),signal:AB.signal});
-  if(!r.ok)throw new Error(r.status);
-  var rd=r.body.getReader(),dec=new TextDecoder(),full='';
-  while(true){
-    var x=await rd.read();if(x.done)break;
-    dec.decode(x.value).split('\n').forEach(function(ln){
-      ln=ln.trim();if(!ln.startsWith('data:'))return;
-      try{var j=JSON.parse(ln.slice(5));var t=j.content||'';if(t){ai.textContent+=t;full+=t;TOK++;scrollChat();}if(j.stop)return;}catch(e){}
-    });
-  }
-  if(full)HIST.push({role:'assistant',content:full});
-}
+function addMsg(role,txt){const c=document.getElementById('chatscroll');const d=document.createElement('div');d.className='cm '+role;d.textContent=txt;c.appendChild(d);c.scrollTop=c.scrollHeight;return d}
 
-async function callAgent(ai,prompt,ag){
-  ai.textContent='';
-  try{
-    var url=ag==='ghost'?S.ag+'/ghost':S.ag+'/generate';
-    var r=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({prompt:prompt,agent:ag,history:HIST.slice(-4)}),signal:AB.signal});
-    var j=await r.json();
-    var txt=j.response||j.output||j.result||JSON.stringify(j,null,2);
-    ai.textContent=txt;HIST.push({role:'assistant',content:txt});
-  }catch(e){await callOllama(ai,prompt);}
-}
+function scrollChat(){const c=document.getElementById('chatscroll');c.scrollTop=c.scrollHeight}
 
-async function routeAndCall(ai,prompt){
-  ai.textContent='';
-  var low=prompt.toLowerCase();
-  var chosen,label;
-  if(/\bcode\b|function|bug|debug|script|class|api|json|sql|algorithm|implement/.test(low)){chosen='deepseek-v3';label='⚡ DeepSeek-V3 — Code';}
-  else if(/story|creative|poem|write|fiction|song|art|novel|imagine/.test(low)){chosen='llama3:8b-instruct-q4_K_M';label='🦙 LLaMA-3-8B — Creative';}
-  else if(/agent|task|automate|run|execute|search|fetch|scrape/.test(low)){chosen='luminous';label='✨ Luminous Agent';}
-  else{chosen='deepseek-v3';label='⚡ DeepSeek-V3 — General';}
-  ai.textContent='Routed → '+label+'\n\n';
-  var saved=CUR_MODEL;CUR_MODEL=chosen;
-  if(chosen==='luminous')await callAgent(ai,prompt,'luminous');
-  else await callOllama(ai,prompt);
-  CUR_MODEL=saved;
-}
+function showX(v){document.getElementById('sbtn').style.display=v?'none':'flex';document.getElementById('xbtn').style.display=v?'flex':'none'}
 
-function stopGen(){if(AB){AB.abort();AB=null;}showX(false);}
+async function doSend(){const el=document.getElementById('cinp');const txt=el.value.trim();if(!txt)return;el.value='';el.style.height='auto';addMsg('u',txt);APP.history.push({role:'user',content:txt});showX(true);const ai=addMsg('a','');ai.innerHTML='<span class="dots"><span>▪</span><span>▪</span><span>▪</span></span>';APP.abort=new AbortController();try{if(APP.model==='auto')await routeAndCall(ai,txt);else if(APP.model==='luminous'||APP.model==='ghost')await callAgent(ai,txt,APP.model);else await callOllama(ai,txt)}catch(e){if(e.name!=='AbortError'){try{await callLlama(ai,txt)}catch(e2){ai.textContent='⚠ Cannot reach KNOCKS NET. Check server in Settings ⚙'}}}showX(false);limitHistory()}
 
-// FORGE
-document.querySelectorAll('#langs .lp').forEach(function(b){
-  b.onclick=function(){document.querySelectorAll('#langs .lp').forEach(function(x){x.classList.remove('on')});this.classList.add('on');CUR_LANG=this.dataset.l;document.getElementById('code-lang-lbl').textContent=this.dataset.l;};
-});
-async function forgeGen(){
-  var inp=document.getElementById('finp').value.trim();
-  if(!inp)return;
-  var box=document.getElementById('code-box');
-  box.textContent='⚡ Forging '+CUR_LANG+' code...\n';
-  var prompt='Write ONLY the code, no explanation, no markdown fences. Language: '+CUR_LANG+'. Task: '+inp;
-  var fakeAB=new AbortController();
-  var msgs=[{role:'system',content:'You are an expert coder. Output only raw code with no explanation and no markdown code fences.'},{role:'user',content:prompt}];
-  try{
-    var r=await fetch(S.ol+'/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'deepseek-v3',messages:msgs,stream:true,options:{temperature:0.2}}),signal:fakeAB.signal});
-    if(!r.ok)throw new Error(r.status);
-    var rd=r.body.getReader(),dec=new TextDecoder();
-    box.textContent='';
-    while(true){
-      var x=await rd.read();if(x.done)break;
-      dec.decode(x.value).split('\n').filter(Boolean).forEach(function(ln){
-        try{var j=JSON.parse(ln);var t=(j.message&&j.message.content)||'';if(t)box.textContent+=t;}catch(e){}
-      });
-    }
-  }catch(e){
-    try{
-      var fp='Write only code, no explanation, no markdown. Language: '+CUR_LANG+'. Task: '+inp;
-      var r2=await fetch(S.ll+'/completion',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({prompt:fp,n_predict:512,temperature:0.2})});
-      var j2=await r2.json();
-      box.textContent=j2.content||j2.result||'Error: could not generate';
-    }catch(e2){box.textContent='⚠ Cannot reach KNOCKS NET to forge code.';}
-  }
-  document.getElementById('craft-acts');
-}
-function copyCode(){
-  var t=document.getElementById('code-box').textContent;
-  navigator.clipboard.writeText(t).then(function(){alert('Code copied!');}).catch(function(){});
-}
+function limitHistory(){if(APP.history.length>50)APP.history=APP.history.slice(-50)}
 
-// CRAFT
-document.querySelectorAll('#ctypes .ct').forEach(function(b){
-  b.onclick=function(){document.querySelectorAll('#ctypes .ct').forEach(function(x){x.classList.remove('on')});this.classList.add('on');CUR_TYPE=this.dataset.t;};
-});
-var CRAFT_PROMPTS={
-  blog:'Write a detailed, engaging blog post with introduction, main sections, and conclusion about: ',
-  email:'Write a professional, clear email with subject, greeting, body, and sign-off about: ',
-  readme:'Write a comprehensive GitHub README.md with badges, installation, usage, and API sections for: ',
-  social:'Write 3 engaging social media posts (Twitter, LinkedIn, Instagram) about: ',
-  script:'Write a complete video/podcast script with intro, segments, and outro about: ',
-  ad:'Write compelling ad copy with headline, body, and call-to-action for: ',
-  report:'Write a structured professional report with executive summary, findings, and recommendations about: ',
-  pitch:'Write a compelling pitch deck narrative with problem, solution, market, and ask for: '
-};
-async function craftGen(){
-  var inp=document.getElementById('craft-inp').value.trim();
-  if(!inp)return;
-  var box=document.getElementById('craft-box');
-  box.textContent='✍ Crafting '+CUR_TYPE+'...\n';
-  document.getElementById('craft-acts').style.display='none';
-  var prompt=CRAFT_PROMPTS[CUR_TYPE]+inp;
-  var msgs=[{role:'system',content:S.sys},{role:'user',content:prompt}];
-  try{
-    var r=await fetch(S.ol+'/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:CUR_MODEL==='auto'?'deepseek-v3':CUR_MODEL,messages:msgs,stream:true,options:{temperature:0.75}})});
-    if(!r.ok)throw new Error(r.status);
-    var rd=r.body.getReader(),dec=new TextDecoder();
-    box.textContent='';
-    while(true){
-      var x=await rd.read();if(x.done)break;
-      dec.decode(x.value).split('\n').filter(Boolean).forEach(function(ln){
-        try{var j=JSON.parse(ln);var t=(j.message&&j.message.content)||'';if(t){box.textContent+=t;LAST_CRAFT+=t;}}catch(e){}
-      });
-    }
-    LAST_CRAFT=box.textContent;
-    document.getElementById('craft-acts').style.display='flex';
-  }catch(e){box.textContent='⚠ Cannot reach KNOCKS NET. Check Settings ⚙';}
-}
-function copyCraft(){navigator.clipboard.writeText(document.getElementById('craft-box').textContent).then(function(){alert('Copied!');}).catch(function(){});}
-async function refineCraft(){
-  var box=document.getElementById('craft-box');
-  var orig=box.textContent;
-  box.textContent='Refining...\n';
-  var msgs=[{role:'system',content:'Improve and refine the following content. Keep the same type and tone but make it better:'},{role:'user',content:orig}];
-  try{
-    var r=await fetch(S.ol+'/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'deepseek-v3',messages:msgs,stream:true,options:{temperature:0.6}})});
-    var rd=r.body.getReader(),dec=new TextDecoder();
-    box.textContent='';
-    while(true){var x=await rd.read();if(x.done)break;dec.decode(x.value).split('\n').filter(Boolean).forEach(function(ln){try{var j=JSON.parse(ln);var t=(j.message&&j.message.content)||'';if(t)box.textContent+=t;}catch(e){}});}
-  }catch(e){box.textContent=orig;}
-}
-async function makeLonger(){
-  var box=document.getElementById('craft-box');
-  var orig=box.textContent;
-  box.textContent='Expanding...\n';
-  var msgs=[{role:'system',content:'Expand and make this content significantly longer with more detail, examples, and depth:'},{role:'user',content:orig}];
-  try{
-    var r=await fetch(S.ol+'/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'deepseek-v3',messages:msgs,stream:true,options:{temperature:0.7}})});
-    var rd=r.body.getReader(),dec=new TextDecoder();
-    box.textContent='';
-    while(true){var x=await rd.read();if(x.done)break;dec.decode(x.value).split('\n').filter(Boolean).forEach(function(ln){try{var j=JSON.parse(ln);var t=(j.message&&j.message.content)||'';if(t)box.textContent+=t;}catch(e){}});}
-  }catch(e){box.textContent=orig;}
-}
+async function callOllama(ai,prompt){ai.textContent='';const msgs=[{role:'system',content:APP.settings.sys}].concat(APP.history.slice(-10));let full='';await fetchStream(APP.settings.ol+'/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:APP.model,messages:msgs,stream:true,options:{temperature:APP.settings.tmp}})},ln=>{try{const j=JSON.parse(ln);const t=(j.message&&j.message.content)||'';if(t){ai.textContent+=t;full+=t;APP.tokens++;document.getElementById('tkn').textContent=APP.tokens+' tokens';scrollChat()}}catch(e){}});if(full)APP.history.push({role:'assistant',content:full})}
 
-// AGENTS
-function selectAgent(id){CUR_AGENT=id;document.getElementById('agent-inp').placeholder='Task for '+id+'...';document.getElementById('agent-inp').focus();}
-async function agentRun(){
-  var inp=document.getElementById('agent-inp');
-  var task=inp.value.trim();if(!task)return;
-  inp.value='';
-  var box=document.getElementById('agent-box');
-  box.textContent='['+CUR_AGENT+'] Processing: '+task+'\n\n';
-  try{
-    var url=CUR_AGENT==='ghost'?S.ag+'/ghost':S.ag+'/agent/'+CUR_AGENT;
-    var r=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({task:task,agent:CUR_AGENT})});
-    var j=await r.json();
-    box.textContent='['+CUR_AGENT+'] Result:\n\n'+(j.response||j.output||j.result||JSON.stringify(j,null,2));
-  }catch(e){
-    var fakeAB2=new AbortController();
-    var msgs=[{role:'system',content:'You are '+CUR_AGENT+'. '+S.sys},{role:'user',content:task}];
-    try{
-      var r2=await fetch(S.ol+'/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'deepseek-v3',messages:msgs,stream:false,options:{temperature:0.5}})});
-      var j2=await r2.json();
-      box.textContent='['+CUR_AGENT+'] Result:\n\n'+((j2.message&&j2.message.content)||'No response');
-    }catch(e2){box.textContent='['+CUR_AGENT+'] ⚠ Cannot reach agent. Check Settings ⚙';}
-  }
-}
+async function callLlama(ai,prompt){ai.textContent='';const fp=APP.settings.sys+'\n\nUser: '+prompt+'\n\nAssistant:';let full='';await fetchStream(APP.settings.ll+'/completion',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({prompt:fp,n_predict:768,stream:true,temperature:APP.settings.tmp})},ln=>{ln=ln.trim();if(!ln.startsWith('data:'))return;try{const j=JSON.parse(ln.slice(5));const t=j.content||'';if(t){ai.textContent+=t;full+=t;APP.tokens++;scrollChat()}if(j.stop)return}catch(e){}});if(full)APP.history.push({role:'assistant',content:full})}
 
-// FILES
-async function loadFiles(){
-  var list=document.getElementById('file-list');
-  var empty=document.getElementById('files-empty');
-  list.innerHTML='<div style="padding:20px;text-align:center;color:var(--tx3);font-size:12px">Loading...</div>';
-  empty.style.display='none';
-  document.getElementById('path-lbl').textContent='NET/'+FILE_PATH;
-  try{
-    var r=await fetch(S.fs+'/files'+(FILE_PATH?'/'+FILE_PATH:''),{signal:AbortSignal.timeout(4000)});
-    var j=await r.json();
-    var items=j.files||j.items||j||[];
-    list.innerHTML='';
-    if(!items.length){list.innerHTML='';empty.style.display='block';empty.textContent='📂 Empty folder';return;}
-    items.forEach(function(f){
-      var div=document.createElement('div');div.className='fi';
-      var isDir=f.type==='dir'||f.is_dir||f.name.endsWith('/');
-      var icon=isDir?'📁':getFileIcon(f.name);
-      var bg=isDir?'#1e1e35':'#16162a';
-      div.innerHTML='<div class="fi-icon" style="background:'+bg+'">'+icon+'</div><span class="fi-name">'+f.name+'</span><span class="fi-size">'+(f.size?fmtSize(f.size):'')+'</span>';
-      if(isDir)div.onclick=function(){FILE_PATH=(FILE_PATH?FILE_PATH+'/':'')+f.name.replace('/','');loadFiles();};
-      else div.onclick=function(){viewFile(f.name);};
-      list.appendChild(div);
-    });
-  }catch(e){list.innerHTML='';empty.style.display='block';empty.innerHTML='📂 Cannot reach file server.<br><span style="font-size:11px;color:var(--tx3)">Start a file server in NET/ or set URL in Settings ⚙</span>';}
-}
-function navUp(){if(FILE_PATH.includes('/'))FILE_PATH=FILE_PATH.split('/').slice(0,-1).join('/');else FILE_PATH='';loadFiles();}
-function getFileIcon(n){var e=n.split('.').pop().toLowerCase();var m={py:'🐍',js:'⚡',html:'🌐',json:'📋',md:'📝',txt:'📄',sh:'🔧',cpp:'⚙',java:'☕',rs:'🦀',go:'🐹',gguf:'🧠',csv:'📊',png:'🖼',jpg:'🖼',pdf:'📑'};return m[e]||'📄';}
-function fmtSize(b){if(b>1e9)return(b/1e9).toFixed(1)+'GB';if(b>1e6)return(b/1e6).toFixed(1)+'MB';if(b>1e3)return(b/1e3).toFixed(1)+'KB';return b+'B';}
-async function viewFile(name){
-  try{
-    var r=await fetch(S.fs+'/file'+(FILE_PATH?'/'+FILE_PATH:'/')+'/'+name);
-    var txt=await r.text();
-    alert(name+':\n\n'+txt.slice(0,800)+(txt.length>800?'\n...(truncated)':''));
-  }catch(e){alert('Cannot read file: '+name);}
-}
+async function callAgent(ai,prompt,ag){ai.textContent='';try{const url=ag==='ghost'?APP.settings.ag+'/ghost':APP.settings.ag+'/generate';const r=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({prompt,agent:ag,history:APP.history.slice(-4)}),signal:APP.abort?.signal});const j=await r.json();const txt=j.response||j.output||j.result||JSON.stringify(j,null,2);ai.textContent=txt;APP.history.push({role:'assistant',content:txt})}catch(e){await callOllama(ai,prompt)}}
 
-// CONNECTION CHECK
-async function chkConn(){
-  var dot=document.getElementById('dot');var stxt=document.getElementById('stxt');
-  try{var r=await fetch(S.ol+'/api/tags',{signal:AbortSignal.timeout(2000)});if(r.ok){var j=await r.json();var n=j.models?j.models.length:0;dot.className='on';stxt.textContent='NET online ('+n+' models)';return;}}catch(e){}
-  try{var r2=await fetch(S.ll+'/health',{signal:AbortSignal.timeout(1500)});if(r2.ok){dot.className='on';stxt.textContent='llama.cpp online';return;}}catch(e2){}
-  dot.className='warn';stxt.textContent='NET offline';
-}
+async function routeAndCall(ai,prompt){ai.textContent='';const low=prompt.toLowerCase();let chosen,label;if(/\bcode\b|function|bug|debug|script|class|api|json|sql|algorithm|implement/.test(low)){chosen='deepseek-v3';label='⚡ DeepSeek-V3 — Code'}else if(/story|creative|poem|write|fiction|song|art|novel|imagine/.test(low)){chosen='llama3:8b-instruct-q4_K_M';label='🦙 LLaMA-3-8B — Creative'}else if(/agent|task|automate|run|execute|search|fetch|scrape/.test(low)){chosen='luminous';label='✨ Luminous Agent'}else{chosen='deepseek-v3';label='⚡ DeepSeek-V3 — General'}ai.textContent='Routed → '+label+'\n\n';const saved=APP.model;APP.model=chosen;if(chosen==='luminous')await callAgent(ai,prompt,'luminous');else await callOllama(ai,prompt);APP.model=saved}
 
-// SETTINGS
-function openS(){
-  document.getElementById('s-ol').value=S.ol;document.getElementById('s-ll').value=S.ll;
-  document.getElementById('s-ag').value=S.ag;document.getElementById('s-fs').value=S.fs;
-  document.getElementById('s-sys').value=S.sys;document.getElementById('s-tmp').value=S.tmp;
-  document.getElementById('ov').classList.add('open');
-}
-function closeS(){document.getElementById('ov').classList.remove('open');}
-function closeSOuter(e){if(e.target===document.getElementById('ov'))closeS();}
-function saveS(){
-  S.ol=document.getElementById('s-ol').value.trim().replace(/\/$/,'');
-  S.ll=document.getElementById('s-ll').value.trim().replace(/\/$/,'');
-  S.ag=document.getElementById('s-ag').value.trim().replace(/\/$/,'');
-  S.fs=document.getElementById('s-fs').value.trim().replace(/\/$/,'');
-  S.sys=document.getElementById('s-sys').value.trim();
-  S.tmp=parseFloat(document.getElementById('s-tmp').value)||0.7;
-  ss('ol',S.ol);ss('ll',S.ll);ss('ag',S.ag);ss('fs',S.fs);ss('sys',S.sys);ss('tmp',S.tmp);
-  closeS();chkConn();
-}
-async function testConn(){
-  var url=document.getElementById('s-ol').value.trim().replace(/\/$/,'');
-  try{var r=await fetch(url+'/api/tags',{signal:AbortSignal.timeout(3000)});if(r.ok){var j=await r.json();var ms=(j.models||[]).map(function(m){return m.name;}).join(', ')||'none loaded';alert('✅ Ollama Connected!\nModels: '+ms);return;}}catch(e){}
-  try{var r2=await fetch(document.getElementById('s-ll').value.trim()+'/health',{signal:AbortSignal.timeout(2000)});if(r2.ok){alert('✅ llama.cpp is online!');return;}}catch(e2){}
-  alert('❌ Cannot connect to KNOCKS NET.\nMake sure Ollama or llama.cpp is running in NET/CORE/');
-}
-function clrAll(){if(confirm('Clear all chat history and saved data?')){localStorage.clear();location.reload();}}
+function stopGen(){if(APP.abort){APP.abort.abort();APP.abort=null}showX(false)}
 
-// INIT
-chkConn();setInterval(chkConn,20000);
+document.querySelectorAll('#langs .lp').forEach(b=>{b.onclick=function(){document.querySelectorAll('#langs .lp').forEach(x=>x.classList.remove('on'));this.classList.add('on');APP.lang=this.dataset.l;document.getElementById('code-lang-lbl').textContent=APP.lang}});
+
+async function forgeGen(){const inp=document.getElementById('finp').value.trim();if(!inp)return;const box=document.getElementById('code-box');box.textContent='⚡ Forging '+APP.lang+' code...\n';const prompt='Write ONLY the code, no explanation, no markdown fences. Language: '+APP.lang+'. Task: '+inp;const msgs=[{role:'system',content:'You are an expert coder. Output only raw code with no explanation and no markdown code fences.'},{role:'user',content:prompt}];try{let result='';await fetchStream(APP.settings.ol+'/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'deepseek-v3',messages:msgs,stream:true,options:{temperature:0.2}})},ln=>{try{const j=JSON.parse(ln);const t=(j.message&&j.message.content)||'';if(t){result+=t;box.textContent=result}}catch(e){}});document.getElementById('craft-acts')}catch(e){try{const fp='Write only code, no explanation, no markdown. Language: '+APP.lang+'. Task: '+inp;const r2=await fetch(APP.settings.ll+'/completion',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({prompt:fp,n_predict:512,temperature:0.2})});const j2=await r2.json();box.textContent=j2.content||j2.result||'Error: could not generate'}catch(e2){box.textContent='⚠ Cannot reach KNOCKS NET to forge code.'}}}
+
+function copyCode(){navigator.clipboard.writeText(document.getElementById('code-box').textContent).then(()=>{alert('Code copied!')}).catch(()=>{})}
+
+document.querySelectorAll('#ctypes .ct').forEach(b=>{b.onclick=function(){document.querySelectorAll('#ctypes .ct').forEach(x=>x.classList.remove('on'));this.classList.add('on');APP.contentType=this.dataset.t}});
+
+const CRAFT_PROMPTS={blog:'Write a detailed, engaging blog post with introduction, main sections, and conclusion about: ',email:'Write a professional, clear email with subject, greeting, body, and sign-off about: ',readme:'Write a comprehensive GitHub README.md with badges, installation, usage, and API sections for: ',social:'Write 3 engaging social media posts (Twitter, LinkedIn, Instagram) about: ',script:'Write a complete video/podcast script with intro, segments, and outro about: ',ad:'Write compelling ad copy with headline, body, and call-to-action for: ',report:'Write a structured professional report with executive summary, findings, and recommendations about: ',pitch:'Write a compelling pitch deck narrative with problem, solution, market, and ask for: '};
+
+async function craftGen(){const inp=document.getElementById('craft-inp').value.trim();if(!inp)return;const box=document.getElementById('craft-box');box.textContent='✍ Crafting '+APP.contentType+'...\n';document.getElementById('craft-acts').style.display='none';const prompt=CRAFT_PROMPTS[APP.contentType]+inp;const msgs=[{role:'system',content:APP.settings.sys},{role:'user',content:prompt}];try{let result='';await fetchStream(APP.settings.ol+'/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:APP.model==='auto'?'deepseek-v3':APP.model,messages:msgs,stream:true,options:{temperature:0.7}})},ln=>{try{const j=JSON.parse(ln);const t=(j.message&&j.message.content)||'';if(t){result+=t;box.textContent=result}}catch(e){}});document.getElementById('craft-acts').style.display='flex'}catch(e){box.textContent='⚠ Cannot reach KNOCKS NET. Check Settings ⚙'}}
+
+function copyCraft(){navigator.clipboard.writeText(document.getElementById('craft-box').textContent).then(()=>{alert('Copied!')}).catch(()=>{})}
+
+async function refineCraft(){const box=document.getElementById('craft-box');const orig=box.textContent;box.textContent='Refining...\n';const msgs=[{role:'system',content:'Improve and refine the following content. Keep the same type and tone but make it better:'},{role:'user',content:orig}];try{let result='';await fetchStream(APP.settings.ol+'/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'deepseek-v3',messages:msgs,stream:true,options:{temperature:0.6}})},ln=>{try{const j=JSON.parse(ln);const t=(j.message&&j.message.content)||'';if(t){result+=t;box.textContent=result}}catch(e){}});document.getElementById('craft-acts').style.display='flex'}catch(e){box.textContent=orig}}
+
+async function makeLonger(){const box=document.getElementById('craft-box');const orig=box.textContent;box.textContent='Expanding...\n';const msgs=[{role:'system',content:'Expand and make this content significantly longer with more detail, examples, and depth:'},{role:'user',content:orig}];try{let result='';await fetchStream(APP.settings.ol+'/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'deepseek-v3',messages:msgs,stream:true,options:{temperature:0.7}})},ln=>{try{const j=JSON.parse(ln);const t=(j.message&&j.message.content)||'';if(t){result+=t;box.textContent=result}}catch(e){}});document.getElementById('craft-acts').style.display='flex'}catch(e){box.textContent=orig}}
+
+function selectAgent(id){APP.agent=id;document.getElementById('agent-inp').placeholder='Task for '+id+'...';document.getElementById('agent-inp').focus()}
+
+async function agentRun(){const inp=document.getElementById('agent-inp');const task=inp.value.trim();if(!task)return;inp.value='';const box=document.getElementById('agent-box');box.textContent='['+APP.agent+'] Processing: '+task+'\n\n';try{const url=APP.agent==='ghost'?APP.settings.ag+'/ghost':APP.settings.ag+'/agent/'+APP.agent;const r=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({task,agent:APP.agent})});const j=await r.json();box.textContent='['+APP.agent+'] Result:\n\n'+(j.response||j.output||j.result||JSON.stringify(j,null,2))}catch(e){const msgs=[{role:'system',content:'You are '+APP.agent+'. '+APP.settings.sys},{role:'user',content:task}];try{const r2=await fetch(APP.settings.ol+'/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'deepseek-v3',messages:msgs,stream:false,options:{temperature:0.5}})});const j2=await r2.json();box.textContent='['+APP.agent+'] Result:\n\n'+((j2.message&&j2.message.content)||'No response')}catch(e2){box.textContent='['+APP.agent+'] ⚠ Cannot reach agent. Check Settings ⚙'}}}
+
+async function loadFiles(){const list=document.getElementById('file-list');const empty=document.getElementById('files-empty');list.innerHTML='<div style="padding:20px;text-align:center;color:var(--tx3);font-size:12px">Loading...</div>';empty.style.display='none';document.getElementById('path-lbl').textContent='NET/'+APP.filePath;try{const r=await fetch(APP.settings.fs+'/files'+(APP.filePath?'/'+APP.filePath:''),{signal:AbortSignal.timeout(4000)});const j=await r.json();const items=j.files||j.items||j||[];list.innerHTML='';if(!items.length){empty.style.display='block';empty.textContent='📂 Empty folder';return}items.forEach(f=>{const div=document.createElement('div');div.className='fi';const isDir=f.type==='dir'||f.is_dir||f.name.endsWith('/');const icon=isDir?'📁':getFileIcon(f.name);const bg=isDir?'#1e1e35':'#16162a';div.innerHTML='<div class="fi-icon" style="background:'+bg+'">'+icon+'</div><span class="fi-name">'+f.name+'</span><span class="fi-size">'+(f.size?fmtSize(f.size):'')+'</span>';if(isDir){div.onclick=()=>{APP.filePath=(APP.filePath?APP.filePath+'/':'')+f.name.replace('/','');loadFiles()}}else{div.onclick=()=>viewFile(f.name)}list.appendChild(div)})}catch(e){list.innerHTML='';empty.style.display='block';empty.innerHTML='📂 Cannot reach file server.<br><span style="font-size:11px;color:var(--tx3)">Start a file server in NET/ or set URL in Settings</span>'}}
+
+function navUp(){if(APP.filePath.includes('/'))APP.filePath=APP.filePath.split('/').slice(0,-1).join('/');else APP.filePath='';loadFiles()}
+
+function getFileIcon(n){const e=n.split('.').pop().toLowerCase();const m={py:'🐍',js:'⚡',html:'🌐',json:'📋',md:'📝',txt:'📄',sh:'🔧',cpp:'⚙',java:'☕',rs:'🦀',go:'🐹',gguf:'🧠'};return m[e]||'📄'}
+
+function fmtSize(b){if(b>1e9)return(b/1e9).toFixed(1)+'GB';if(b>1e6)return(b/1e6).toFixed(1)+'MB';if(b>1e3)return(b/1e3).toFixed(1)+'KB';return b+'B'}
+
+async function viewFile(name){try{const r=await fetch(APP.settings.fs+'/file'+(APP.filePath?'/'+APP.filePath:'/')+'/'+name);const txt=await r.text();alert(name+':\n\n'+txt.slice(0,800)+(txt.length>800?'\n...(truncated):'')}catch(e){alert('Cannot read file: '+name)}}
+
+async function chkConn(){const dot=document.getElementById('dot');const stxt=document.getElementById('stxt');try{const r=await fetch(APP.settings.ol+'/api/tags',{signal:AbortSignal.timeout(2000)});if(r.ok){const j=await r.json();const n=j.models?j.models.length:0;dot.className='on';stxt.textContent='NET online ('+n+' model'+(n===1?'':'s')+')';return}}catch(e){}try{const r2=await fetch(APP.settings.ll+'/health',{signal:AbortSignal.timeout(1500)});if(r2.ok){dot.className='on';stxt.textContent='llama.cpp online';return}}catch(e){}dot.className='warn';stxt.textContent='NET offline'}
+
+function openS(){document.getElementById('s-ol').value=APP.settings.ol;document.getElementById('s-ll').value=APP.settings.ll;document.getElementById('s-ag').value=APP.settings.ag;document.getElementById('s-fs').value=APP.settings.fs;document.getElementById('s-sys').value=APP.settings.sys;document.getElementById('s-tmp').value=APP.settings.tmp;document.getElementById('ov').classList.add('open')}
+
+function closeS(){document.getElementById('ov').classList.remove('open')}
+
+function closeSOuter(e){if(e.target===document.getElementById('ov'))closeS()}
+
+function saveS(){APP.settings.ol=document.getElementById('s-ol').value.trim().replace(/\/$/,'');APP.settings.ll=document.getElementById('s-ll').value.trim().replace(/\/$/,'');APP.settings.ag=document.getElementById('s-ag').value.trim().replace(/\/$/,'');APP.settings.fs=document.getElementById('s-fs').value.trim().replace(/\/$/,'');APP.settings.sys=document.getElementById('s-sys').value.trim();APP.settings.tmp=parseFloat(document.getElementById('s-tmp').value)||0.7;ss('ol',APP.settings.ol);ss('ll',APP.settings.ll);ss('ag',APP.settings.ag);ss('fs',APP.settings.fs);ss('sys',APP.settings.sys);ss('tmp',APP.settings.tmp);closeS();chkConn()}
+
+async function testConn(){const url=document.getElementById('s-ol').value.trim().replace(/\/$/,'');try{const r=await fetch(url+'/api/tags',{signal:AbortSignal.timeout(3000)});if(r.ok){const j=await r.json();const ms=(j.models||[]).map(m=>m.name).join(', ')||'none loaded';alert('✅ Ollama is online!\nModels: '+ms);return}}catch(e){}try{const r2=await fetch(document.getElementById('s-ll').value.trim()+'/health',{signal:AbortSignal.timeout(2000)});if(r2.ok){alert('✅ llama.cpp is online!');return}}catch(e){}alert('❌ Cannot connect to KNOCKS NET.\nMake sure Ollama or llama.cpp is running in NET/CORE/')}
+
+function clrAll(){if(confirm('Clear all chat history and saved data?')){localStorage.clear();location.reload()}}
+
+initSettings();chkConn();setInterval(()=>{if(document.getElementById('ov').classList.contains('open'))return;chkConn()},20000);
 </script>
 </body>
 </html>
